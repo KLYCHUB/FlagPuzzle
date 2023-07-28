@@ -26,7 +26,7 @@ class _BottomNavBarAdmobState extends State<BottomNavBarAdmob> {
 
   _initBannerAd() {
     _bannerAd = BannerAd(
-      size: AdSize.fullBanner,
+      size: AdSize.banner,
       adUnitId:
           'ca-app-pub-3940256099942544/6300978111', // Replace with your test ad unit ID or real ad unit ID
       listener: BannerAdListener(

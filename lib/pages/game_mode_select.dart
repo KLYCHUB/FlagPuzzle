@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../thema.dart';
 import '../utils/constants.dart';
 import '../utils/flagString.dart';
-import '../widgets/admob_bottom_nav_bar.dart';
+import '../services/admob_bottom_nav_bar.dart';
 import '../widgets/custom_shader_mask.dart';
 import '../widgets/game_mode_select_button.dart';
 import '../widgets/shader_mask_nav.dart';

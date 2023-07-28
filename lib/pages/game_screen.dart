@@ -6,10 +6,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flag_puzzle/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../thema.dart';
 import '../utils/strings.dart';
-import '../widgets/admob_bottom_nav_bar.dart';
+import '../services/admob_bottom_nav_bar.dart';
 import '../widgets/custom_shader_mask.dart';
 import '../widgets/shader_mask_nav.dart';
 import 'game_mode_select.dart';
@@ -27,6 +28,9 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   bool showCorrectFlashbang = false;
   bool showWrongFlashbang = false;
+
+  late InterstitialAd _interstitialAd;
+  bool _isAdLoaded = false;
 
   int? selectedOptionIndex;
 
@@ -52,6 +56,33 @@ class _GameScreenState extends State<GameScreen> {
     super.initState();
     // Seçenekleri belirle
     setOptions();
+    _initAd();
+  }
+
+  void _initAd() {
+    InterstitialAd.load(
+      adUnitId: "ca-app-pub-3940256099942544/1033173712",
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          setState(() {
+            _interstitialAd = ad;
+            _isAdLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (error) {
+          // Handle ad load failure (if needed)
+        },
+      ),
+    );
+  }
+
+  void _showInterstitialAd() {
+    if (_isAdLoaded) {
+      _interstitialAd.show();
+    } else {
+      // Ad not loaded yet, handle accordingly
+    }
   }
 
   void setOptions() {
@@ -116,6 +147,7 @@ class _GameScreenState extends State<GameScreen> {
           actions: [
             TextButton(
               onPressed: () {
+                _showInterstitialAd();
                 // Diyalogu kapat
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) {
@@ -184,6 +216,7 @@ class _GameScreenState extends State<GameScreen> {
         backgroundColor: backgroundColor,
         leading: ShaderMaskNav(
           onPressed: () {
+            _showInterstitialAd();
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) {
                 return const HomePage();

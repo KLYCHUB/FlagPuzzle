@@ -6,7 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../thema.dart';
 import '../utils/constants.dart';
-import '../widgets/admob_bottom_nav_bar.dart';
+import '../services/admob_bottom_nav_bar.dart';
 import '../widgets/custom_shader_mask.dart';
 import '../widgets/langue_button.dart';
 import '../widgets/logo.dart';

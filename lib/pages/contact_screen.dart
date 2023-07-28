@@ -7,7 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../utils/constants.dart';
 import '../utils/strings.dart';
-import '../widgets/admob_bottom_nav_bar.dart';
+import '../services/admob_bottom_nav_bar.dart';
 import '../widgets/custom_shader_mask.dart';
 import '../widgets/link_button.dart';
 import '../widgets/mail_button.dart';
