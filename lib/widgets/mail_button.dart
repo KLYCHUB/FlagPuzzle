@@ -32,10 +32,9 @@ class MailButton extends StatelessWidget {
           String url = params.toString();
           // ignore: deprecated_member_use
           canLaunch(url).then((value) {
-            // use then instead of await
             if (value) {
               // ignore: deprecated_member_use
-              launch(url); // no need to await here
+              launch(url);
             } else {
               if (kDebugMode) {
                 print('Could not launch $url');
