@@ -1,6 +1,6 @@
 // main.dart
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flag_puzzle/pages/home_page.dart';
+import 'package:flag_puzzle/pages/splash_screen.dart';
 import 'package:flag_puzzle/thema.dart';
 import 'package:flag_puzzle/utils/strings.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: themaTitle,
       theme: theme,
-      home: const HomePage(),
+      home: const SplashPage(),
     );
   }
 }
