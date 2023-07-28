@@ -216,7 +216,7 @@ class _GameScreenState extends State<GameScreen> {
         backgroundColor: backgroundColor,
         leading: ShaderMaskNav(
           onPressed: () {
-            _showInterstitialAd();
+            //_showInterstitialAd();
             Navigator.of(context).push(MaterialPageRoute(
               builder: (context) {
                 return const HomePage();
